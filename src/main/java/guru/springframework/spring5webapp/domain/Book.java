@@ -35,6 +35,21 @@ public class Book{
         this.authors = authors;
     }
 
+    @ManyToMany
+    @JoinTable(name="pub_book", joinColumns = @JoinColumn(name="book_id"), 
+        inverseJoinColumns = @JoinColumn(name="pub_id"))
+    private Set<Publisher> publishers= new HashSet<>();
+
+    public Set<Publisher> getPublishers() {
+        return this.publishers;
+    }
+
+    public void setPublishers(Set<Publisher> publishers) {
+        this.publishers = publishers;
+    }
+
+
+
 
     @ManyToMany
     @JoinTable(name="author_book", joinColumns = @JoinColumn(name="book_id"), 
@@ -43,7 +58,7 @@ public class Book{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
   
     public Long getId() {

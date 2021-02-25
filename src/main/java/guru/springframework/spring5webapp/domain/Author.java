@@ -15,7 +15,7 @@ public class Author{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Override
     public boolean equals(Object o) {
